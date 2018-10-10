@@ -5,21 +5,24 @@
  */
 package smims_client.messageTemplate;
 
+import smims_client.clientCatalogue.ClientCatalogue;
+
 /**
  *
- * @author ali
+ * @author aliprf
  */
 public class IQ extends BaseMessageTemplate
 {
-    private Types type;
+    MessageTypes.IQ type;
 
-    public Types getType() {
+    public MessageTypes.IQ getType() {
         return type;
     }
 
-    public void setType(Types type) {
+    public void setType(MessageTypes.IQ type) {
         this.type = type;
     }
+    
     
     
     private IQ initIQ(String from, String to)
@@ -30,8 +33,8 @@ public class IQ extends BaseMessageTemplate
             
             message.setFrom(from);
             message.setTo(to);
-            
-            return null;
+          
+            return message;
         }
         catch(Exception e)
         {
@@ -44,8 +47,10 @@ public class IQ extends BaseMessageTemplate
     {
         try
         {
-            IQ message =initIQ(, to)
+            IQ message =initIQ(ClientCatalogue.getFROM(), to);
+            message.setType(MessageTypes.IQ.GET);
             
+            return message;
         }
         catch(Exception e)
         {
@@ -53,13 +58,6 @@ public class IQ extends BaseMessageTemplate
         }
     }
     
-    private class Types
-    {
-        private final String GET="get",
-                                    SET="set",
-                                    RESULT="result",
-                                    ERROR="error";
-    }
     
     
 }
