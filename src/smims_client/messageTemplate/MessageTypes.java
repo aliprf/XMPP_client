@@ -1,13 +1,24 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2018 aliprf@gmail.com
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 package smims_client.messageTemplate;
 
 /**
  *
- * @author ali
+ * @author aliprf
  */
  public final class MessageTypes
  {
@@ -38,8 +49,11 @@ package smims_client.messageTemplate;
     
     public enum MESSAGE
     {
-        CHAT("chat",0);
-      
+        CHAT("chat",0),
+        GROUP_CHAT("groupchat",1),
+        ERROR("error",2);;
+        
+        
         private final String key;
         private final int id;
 
@@ -60,8 +74,10 @@ package smims_client.messageTemplate;
     
     public enum PRESENCE
     {
-        SUBSCRIBED("subscribed",0),
-        UN_SUBSCRIBED("unsubscribed",0);
+        SUBSCRIBE("subscribe",0),
+        UN_SUBSCRIBE("unsubscribe",1),
+        SUBSCRIBED("subscribed",2),
+        UN_SUBSCRIBED("unsubscribed",3);
       
         private final String key;
         private final int id;

@@ -14,28 +14,36 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package smims_client.clientCatalogue;
-
-import smims_client.addressTemplate.AddressTemplate;
+package smims_client.addressTemplate;
 
 /**
  *
  * @author aliprf
  */
-public class ClientCatalogue 
+public class AddressTemplate 
 {
-    private static AddressTemplate FROM=null;
+    private String user=null;
+    private String domain=null;
+    private String resource=null;
 
-    public static AddressTemplate getFROM()
-    {
-        return FROM;
-    }
-
-    public static void setFROM(AddressTemplate FROM) 
-    {
-        ClientCatalogue.FROM = FROM;
+    public AddressTemplate(String user, String domain) {
+        this.user = user;
+        this.domain = domain;
     }
     
-    
+    public AddressTemplate(String user, String domain, String resource)
+    {
+        this.user = user;
+        this.domain = domain;
+        this.resource = resource;
+    }
+
+    public String createAddress()
+    {
+        if(this.resource != null)
+            return this.user+"@"+this.domain+"/"+this.resource;
+        else
+            return this.user+"@"+this.domain;
+    }
     
 }

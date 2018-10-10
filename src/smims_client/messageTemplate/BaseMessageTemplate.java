@@ -1,33 +1,46 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright (C) 2018 aliprf@gmail.com
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 package smims_client.messageTemplate;
 
+import smims_client.addressTemplate.AddressTemplate;
+
 /**
  *
- * @author ali
+ * @author aliprf
  */
 public class BaseMessageTemplate 
 {
-    private String from= null;
-    private String to= null;    
+    private AddressTemplate from= null;
+    private AddressTemplate to= null;    
     
-    public String getFrom() {
+    public AddressTemplate getFrom() {
         return from;
     }
     
-    public void setFrom(String from) {
+    public void setFrom(AddressTemplate from) {
         from = from;
     }
 
     
-    public String getTo() {
+    public AddressTemplate getTo() {
         return to;
     }
 
-    public void setTo(String to) {
+    public void setTo(AddressTemplate to) {
         to = to;
     }
     
