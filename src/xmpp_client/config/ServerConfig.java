@@ -14,34 +14,25 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package smims_client.messageTemplate;
-
-import smims_client.addressTemplate.AddressTemplate;
+package xmpp_client.config;
 
 /**
  *
- * @author aliprf
+ * @author aliprf@gmail.com
  */
-public class BaseMessageTemplate 
+public class ServerConfig 
 {
-    private AddressTemplate from= null;
-    private AddressTemplate to= null;    
+    private static String serverAddresS="";
     
-    public AddressTemplate getFrom() {
-        return from;
-    }
-    
-    public void setFrom(AddressTemplate from) {
-        from = from;
+
+    public static String getServerAddresS() {
+        return serverAddresS;
     }
 
+    public static void setServerAddresS(String serverAddresS) {
+        ServerConfig.serverAddresS = serverAddresS;
+    }
     
-    public AddressTemplate getTo() {
-        return to;
-    }
-
-    public void setTo(AddressTemplate to) {
-        to = to;
-    }
+  
     
 }

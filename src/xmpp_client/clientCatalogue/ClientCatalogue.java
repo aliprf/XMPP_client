@@ -14,36 +14,28 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package smims_client.addressTemplate;
+package xmpp_client.clientCatalogue;
+
+import xmpp_client.addressTemplate.AddressTemplate;
 
 /**
  *
  * @author aliprf
  */
-public class AddressTemplate 
+public class ClientCatalogue 
 {
-    private String user=null;
-    private String domain=null;
-    private String resource=null;
+    private static AddressTemplate FROM=null;
 
-    public AddressTemplate(String user, String domain) {
-        this.user = user;
-        this.domain = domain;
+    public static AddressTemplate getFROM()
+    {
+        return FROM;
+    }
+
+    public static void setFROM(AddressTemplate FROM) 
+    {
+        ClientCatalogue.FROM = FROM;
     }
     
-    public AddressTemplate(String user, String domain, String resource)
-    {
-        this.user = user;
-        this.domain = domain;
-        this.resource = resource;
-    }
-
-    public String createAddress()
-    {
-        if(this.resource != null)
-            return this.user+"@"+this.domain+"/"+this.resource;
-        else
-            return this.user+"@"+this.domain;
-    }
+    
     
 }

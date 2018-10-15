@@ -14,28 +14,34 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package smims_client.clientCatalogue;
+package xmpp_client.messageTemplates;
 
-import smims_client.addressTemplate.AddressTemplate;
+import xmpp_client.addressTemplate.AddressTemplate;
 
 /**
  *
  * @author aliprf
  */
-public class ClientCatalogue 
+public class BaseMessageTemplate 
 {
-    private static AddressTemplate FROM=null;
-
-    public static AddressTemplate getFROM()
-    {
-        return FROM;
-    }
-
-    public static void setFROM(AddressTemplate FROM) 
-    {
-        ClientCatalogue.FROM = FROM;
+    private AddressTemplate from= null;
+    private AddressTemplate to= null;    
+    
+    public AddressTemplate getFrom() {
+        return from;
     }
     
+    public void setFrom(AddressTemplate from) {
+        from = from;
+    }
+
     
+    public AddressTemplate getTo() {
+        return to;
+    }
+
+    public void setTo(AddressTemplate to) {
+        to = to;
+    }
     
 }

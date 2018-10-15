@@ -14,10 +14,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package smims_client.messageTemplate;
+package xmpp_client.messageTemplate.Presence;
 
-import smims_client.addressTemplate.AddressTemplate;
-import smims_client.clientCatalogue.ClientCatalogue;
+import xmpp_client.addressTemplate.AddressTemplate;
+import xmpp_client.clientCatalogue.ClientCatalogue;
+import xmpp_client.messageTemplates.BaseMessageTemplate;
+import xmpp_client.messageTemplates.MessageTypes;
 
 /**
  *
@@ -35,25 +37,36 @@ public class Presence extends BaseMessageTemplate
         this.type = type;
     }
     
-    private Presence initPresence(AddressTemplate from, AddressTemplate to) throws Exception
+    private Presence initPresence(AddressTemplate from, AddressTemplate to, MessageTypes.PRESENCE type) throws Exception
     {
         Presence message =new Presence();
         message.setFrom(from);
         message.setTo(to);
+        message.setType(type);
         return message;   
+    }
+    
+    
+    public Presence createSubscribePresnce(AddressTemplate to) throws Exception
+    {
+        return initPresence(ClientCatalogue.getFROM(), to,MessageTypes.PRESENCE.SUBSCRIBE);   
+    }
+    
+    public Presence createUnSubscribePresnce(AddressTemplate to) throws Exception
+    {
+        return initPresence(ClientCatalogue.getFROM(), to,MessageTypes.PRESENCE.UN_SUBSCRIBE);   
+
     }
     
     public Presence createSubscribedPresnce(AddressTemplate to) throws Exception
     {
-        Presence message =initPresence(ClientCatalogue.getFROM(), to);
-        message.setType(MessageTypes.PRESENCE.SUBSCRIBED);
-        return message;   
+        return initPresence(ClientCatalogue.getFROM(), to,MessageTypes.PRESENCE.SUBSCRIBED);   
     }
     
     public Presence createUnSubscribedPresnce(AddressTemplate to) throws Exception
     {
-        Presence message =initPresence(ClientCatalogue.getFROM(), to);
-        message.setType(MessageTypes.PRESENCE.UN_SUBSCRIBED);
-        return message;   
+        return initPresence(ClientCatalogue.getFROM(), to,MessageTypes.PRESENCE.UN_SUBSCRIBED);   
+
     }
+    
 }

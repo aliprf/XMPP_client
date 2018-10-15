@@ -15,10 +15,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package smims_client.messageTemplate;
+package xmpp_client.messageTemplate.IQ;
 
-import smims_client.addressTemplate.AddressTemplate;
-import smims_client.clientCatalogue.ClientCatalogue;
+import xmpp_client.addressTemplate.AddressTemplate;
+import xmpp_client.clientCatalogue.ClientCatalogue;
+import xmpp_client.messageTemplates.BaseMessageTemplate;
+import xmpp_client.messageTemplates.MessageTypes;
 
 /**
  *
@@ -36,40 +38,33 @@ public class IQ extends BaseMessageTemplate
         this.type = type;
     }
     
-    private IQ initIQ(AddressTemplate from, AddressTemplate to) throws Exception
+    private IQ initIQ(AddressTemplate from, AddressTemplate to,MessageTypes.IQ type ) throws Exception
     {
         IQ message =new IQ();
         message.setFrom(from);
         message.setTo(to);
+        message.setType(type);
         return message;   
     }
     
     public IQ createGetIq(AddressTemplate to) throws Exception
     {
-        IQ message =initIQ(ClientCatalogue.getFROM(), to);
-        message.setType(MessageTypes.IQ.GET);
-        return message;   
+        return initIQ(ClientCatalogue.getFROM(), to, MessageTypes.IQ.GET);
     }
     
     public IQ createSetIq(AddressTemplate to) throws Exception
     {
-        IQ message =initIQ(ClientCatalogue.getFROM(), to);
-        message.setType(MessageTypes.IQ.SET);        
-        return message;
+        return initIQ(ClientCatalogue.getFROM(), to,MessageTypes.IQ.SET);
     }
     
     public IQ createResultIq(AddressTemplate to) throws Exception
     {
-        IQ message =initIQ(ClientCatalogue.getFROM(), to);
-        message.setType(MessageTypes.IQ.RESULT);        
-        return message;
+        return initIQ(ClientCatalogue.getFROM(), to,MessageTypes.IQ.RESULT);
     }
     
     public IQ createErrorIq(AddressTemplate to) throws Exception
-    {
-        IQ message =initIQ(ClientCatalogue.getFROM(), to);
-        message.setType(MessageTypes.IQ.ERROR);        
-        return message;
+    { 
+        return initIQ(ClientCatalogue.getFROM(), to,MessageTypes.IQ.ERROR);
     }
     
 }
